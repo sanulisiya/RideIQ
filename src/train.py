@@ -330,5 +330,5 @@ print("    models/vehicle_features.json")
 print("    models/city_map.json")
 print("    models/city_coords.json")
 print("    models/fare_metrics.json")
-
+print()
 print("    python -m streamlit run src/app.py")
