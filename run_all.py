@@ -1,9 +1,3 @@
-"""
-RideIQ | run_all.py
-====================
-Runs the full pipeline in one command.
-Then launch: python -m streamlit run src/app.py
-"""
 import subprocess, sys, os
 
 if __name__ == "__main__":
