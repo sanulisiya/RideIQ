@@ -9,6 +9,7 @@ from datetime import datetime, date, time as dtime
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from nlp_parser import parse_trip_query
+from best_time import render_best_time_tab
 
 st.set_page_config(page_title="RideIQ | Sri Lanka", page_icon="🛺", layout="centered")
 
@@ -173,10 +174,17 @@ a3.metric("Car accuracy",     f"{metrics['car']['accuracy']:.1f}%")
 
 st.divider()
 
-mode = st.radio("Input mode",
-    ["🧠 NLP — just type your trip", "📋 Form — fill fields manually"],
-    horizontal=True, label_visibility="collapsed")
-use_nlp = mode.startswith("🧠")
+# ── Main tabs ──────────────────────────────────────────────────────────────────
+tab_predict, tab_besttime = st.tabs(["🔍 Fare Predictor", "📊 Best Time to Book"])
+
+with tab_besttime:
+    render_best_time_tab(city_map, city_coords, vehicle_features, models, metrics)
+
+with tab_predict:
+    mode = st.radio("Input mode",
+        ["🧠 NLP — just type your trip", "📋 Form — fill fields manually"],
+        horizontal=True, label_visibility="collapsed")
+    use_nlp = mode.startswith("🧠")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # NLP MODE
