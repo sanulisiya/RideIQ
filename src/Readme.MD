@@ -1,4 +1,4 @@
-# 🛰️ Demand-Sentinel
+# ️ Demand-Sentinel
 ### Spatio-Temporal Multi-Modal Engine for Urban Mobility Optimization
 
 ---
